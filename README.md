@@ -1,10 +1,7 @@
-# Название семестровой работы
+# AVL Trees
 
-[![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml)
+[![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-avl-tree/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-avl-tree/actions/workflows/cmake.yml)
 
-**_Измените status badge сверху для отображения статуса сборки вашего проекта._**
-
-`Actions > CMake > ... > Create status badge`
 
 _Краткое описание семестрового проекта. Следует отразить информацию по следующим пунктам:_
 
@@ -15,7 +12,7 @@ _Краткое описание семестрового проекта. Сле
 - _Какова теоретическая сложность операций (поиск за `O(log(n))`, вставка за `O(n^2)` и т.д.)?_
 - _Какая-то другая справочная информация о проекте._
 
-## Команда "название команды"
+## Команда "Lost in space"
 
 _Заполните таблицу с указанием вклада каждого из участников в проект._
 
@@ -28,7 +25,7 @@ _Заполните таблицу с указанием вклада каждо
 | Участник №3   | 10        |  _самозванец_         |
 
 **Девиз команды**
-> _Наши цели ясны. Задачи определены. За работу, товарищи!_
+> _Пятилетку в 2 недели - выполним!_
 
 ## Структура проекта
 
