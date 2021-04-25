@@ -4,24 +4,49 @@
 
 namespace itis {
 
-  // Tip 1: объявите здесь необходимые структуры, функции, константы и прочее
+    struct Node final {
+        int key;
+        int height; // высота
+        Node *left;
+        Node *right;
 
-  // Пример: объявление константы времени компиляции в заголовочном файле
-  inline constexpr auto kStringConstant = "Hello, stranger!";
+        Node(int k);
+    };
 
-  // Пример: объявление структуры с полями и методами
-  struct MyStructure {
-   public:
-    int size_{0};
-    int capacity_{0};
-    int* data_{nullptr};
+    struct AVLTree final {
+         private:
+            Node *head_{nullptr};
 
-    // Tip 2: На начальном этапе разработки структуры данных можете определения методов задавать в
-    // заголовочном файле, как только работа будет завершена, можно будет оставить здесь только объявления.
+            Node *search_(int key, Node* node);
+            void clear_(Node* node);
+            Node* insert_(int key, Node* node);
 
-    int size() const {
-      return size_;
-    }
-  };
+    public:
+            ~AVLTree();
+
+            bool is_empty ();
+
+            int balance_factor(Node* node);
+            int height(Node* node);
+            void set_height(Node* node);
+
+            void insert(int key);
+
+            Node* rotate_left(Node* node);
+            Node* rotate_right(Node* node);
+            Node* balance(Node* node);
+
+            void remove(int key);
+            Node* remove_(int key, Node* node);
+
+            Node *search(int key);
+
+            void clear();
+
+            Node* find_min(Node* node);
+
+            Node* remove_min(Node* node);
+
+    };
 
 }  // namespace itis

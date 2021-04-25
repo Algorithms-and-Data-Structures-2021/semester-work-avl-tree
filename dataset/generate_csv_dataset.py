@@ -1,39 +1,36 @@
-import argparse
+import csv
+import numpy
+from threading import Thread
+from datetime import datetime
 
-DEFAULT_DESCRIPTION = 'CSV dataset generator script demo.'
-DEFAULT_SAMPLES = 100
-
-
-def parse_args():
-    """
-    Парсинг аргументов командной строки (CLI).
-    :return интерфейс для работы с аргументами.
-
-    Больше информации на https://docs.python.org/3.7/howto/argparse.html
-    """
-    parser = argparse.ArgumentParser(description=DEFAULT_DESCRIPTION)
-
-    parser.add_argument('output',
-                        type=str,
-                        help='output CSV file, e.g. data/output.csv')
-
-    parser.add_argument('--samples',
-                        type=int,
-                        default=DEFAULT_SAMPLES,
-                        help='number of samples to generate (default: {})'.format(DEFAULT_SAMPLES))
-
-    return parser.parse_args()
+MAX_VALUE = 1000000
 
 
-if __name__ == '__main__':
-    args = parse_args()
+def get_random_array(amount):
+    return numpy.random.randint(0, MAX_VALUE, amount)
 
-    # валидация аргументов
-    if args.samples < 0:
-        raise ValueError('Number of samples must be greater than 0.')
 
-    # запись данных в файл
-    with open(args.output, 'w') as file:
-        for i in range(args.samples - 1):
-            file.write('{},'.format(i))
-        file.write(str(args.samples - 1))
+def save_to_csv(count, file_name: str):
+    array = get_random_array(count//10)
+    with open(file_name + ".csv", "a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(array)
+
+
+if __name__ == "__main__":
+    for key in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']:
+        for value in [100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 750000, 1000000, 2500000, 5000000]:
+            time1 = datetime.now()
+
+            thread = []
+            for i in range(10):
+                thread.append(Thread(target=save_to_csv, args=(value, 'data/{}/'.format(key) + str(value))))
+
+            for i in range(10):
+                thread[i].start()
+
+            for i in range(10):
+                thread[i].join()
+
+            time2 = datetime.now()
+            print(value, ': ', time2 - time1)

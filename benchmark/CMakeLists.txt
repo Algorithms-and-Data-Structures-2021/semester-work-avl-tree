@@ -7,3 +7,8 @@ add_executable(demo_benchmark demo_benchmark.cpp)
 
 # Примечание: Не забываем подключить (прилинковать) библиотеку ${PROJECT_NAME} с реализацией структуры данных.
 target_link_libraries(demo_benchmark PRIVATE project_paths project_warnings ${PROJECT_NAME})
+
+add_executable(benchmark benchmark.cpp)
+
+# Примечание: Не забываем подключить (прилинковать) библиотеку ${PROJECT_NAME} с реализацией структуры данных.
+target_link_libraries(benchmark PRIVATE project_paths project_warnings ${PROJECT_NAME})
