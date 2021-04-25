@@ -116,7 +116,10 @@ dataset/data/
 ##### Список контрольных тестов
 
 | Название                  | Описание                                | Метрики         |
-| benchmark                 | нужно самому вставлять нужную фунцию между  auto time_point_before = chrono::steady_clock::now(); и auto time_point_after = chrono::steady_clock::now(); также не забудьте сначала добавить элементы, если тестируете поиск или удаление элементов                               | ...             |
+| benchmark                 |  -                       | наносекунды             |
+
+Нужно самому вставлять нужную фунцию между  auto time_point_before = chrono::steady_clock::now(); и auto time_point_after = chrono::steady_clock::now();
+Также не забудьте сначала добавить элементы, если тестируете поиск или удаление элементов. В жизни не всё легко =(                             
 
 ## Источники
 
